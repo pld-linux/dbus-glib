@@ -12,12 +12,14 @@ License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	http://dbus.freedesktop.org/releases/%{name}-%{version}.tar.gz
 # Source0-md5:	4e1e7348b26ee8b6485452113f4221cc
+Patch0:		%{name}-configure.patch
 URL:		http://www.freedesktop.org/Software/dbus
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	dbus-devel >= %{dbus_version}
 BuildRequires:	expat-devel >= %{expat_version}
 BuildRequires:	glib2-devel >= %{glib_version}
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
 Requires:	dbus-libs >= %{dbus_version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -58,6 +60,7 @@ Statyczna biblioteka do u¿ywania D-BUS oparta o GLib.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -67,6 +70,7 @@ Statyczna biblioteka do u¿ywania D-BUS oparta o GLib.
 %{__automake}
 %configure \
 	--with-xml=expat
+
 %{__make}
 
 %install
