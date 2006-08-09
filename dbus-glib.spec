@@ -21,6 +21,7 @@ BuildRequires:	expat-devel >= %{expat_version}
 BuildRequires:	glib2-devel >= %{glib_version}
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	fixed-tools-build
 Requires:	dbus-libs >= %{dbus_version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
