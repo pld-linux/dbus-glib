@@ -6,8 +6,8 @@ diff -aurN dbus-glib-0.71.orig/Makefile.am dbus-glib-0.71/Makefile.am
  
 -SUBDIRS=dbus tools test 
 -DIST_SUBDIRS=dbus tools test
-+SUBDIRS=dbus
-+DIST_SUBDIRS=dbus
++SUBDIRS=dbus tools
++DIST_SUBDIRS=dbus tools
  
  pkgconfigdir = $(libdir)/pkgconfig
  pkgconfig_DATA = $(GLIB_PC)
