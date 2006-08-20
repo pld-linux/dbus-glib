@@ -14,6 +14,7 @@ Source0:	http://dbus.freedesktop.org/releases/%{name}-%{version}.tar.gz
 # Source0-md5:	4e1e7348b26ee8b6485452113f4221cc
 Source1:	dbus-bus-introspect.xml
 Patch0:		%{name}-configure.patch
+Patch1:		%{name}-nolibs.patch
 URL:		http://www.freedesktop.org/Software/dbus
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -62,6 +63,7 @@ Statyczna biblioteka do u¿ywania D-BUS oparta o GLib.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
