@@ -1,28 +1,29 @@
 #
-%define		dbus_version	0.91
+%define		dbus_version	0.94
 %define		expat_version	1:1.95.5
 %define		glib_version	1:2.10.1
 #
 Summary:	GLib-based library for using D-BUS
 Summary(pl):	Biblioteka do u¿ywania D-BUS oparta o GLib
 Name:		dbus-glib
-Version:	0.71
-Release:	2
+Version:	0.72
+Release:	1
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
-Source0:	http://dbus.freedesktop.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	4e1e7348b26ee8b6485452113f4221cc
+Source0:	http://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
+# Source0-md5:	6e92993aed234f13ea41c674dec40889
 Source1:	dbus-bus-introspect.xml
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-nolibs.patch
 URL:		http://www.freedesktop.org/Software/dbus
 BuildRequires:	autoconf >= 2.52
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-devel >= %{dbus_version}
 BuildRequires:	expat-devel >= %{expat_version}
 BuildRequires:	glib2-devel >= %{glib_version}
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.98
 Requires:	dbus-libs >= %{dbus_version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -60,6 +61,18 @@ Static GLib-based library for using D-BUS.
 %description static -l pl
 Statyczna biblioteka do u¿ywania D-BUS oparta o GLib.
 
+%package apidocs
+Summary:	D-BUS-GLib API documentation
+Summary(pl):	Dokumentacja API D-BUS-GLib
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+D-BUS-GLib API documentation.
+
+%description apidocs -l pl
+Dokumentacja API D-BUS-GLib.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -72,6 +85,7 @@ Statyczna biblioteka do u¿ywania D-BUS oparta o GLib.
 %{__autoheader}
 %{__automake}
 %configure \
+	--with-html-dir=%{_gtkdocdir} \
 	--with-xml=expat
 
 cp %{SOURCE1} tools
@@ -106,3 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libdbus-glib-1.a
+
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/dbus-glib
