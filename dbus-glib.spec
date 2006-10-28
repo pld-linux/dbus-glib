@@ -15,7 +15,7 @@ Source0:	http://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.g
 Source1:	dbus-bus-introspect.xml
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-nolibs.patch
-URL:		http://www.freedesktop.org/Software/dbus
+URL:		http://www.freedesktop.org/Software/DBusBindings
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-devel >= %{dbus_version}
