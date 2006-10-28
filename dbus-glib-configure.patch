@@ -1,13 +1,10 @@
-diff -aurN dbus-glib-0.71.orig/Makefile.am dbus-glib-0.71/Makefile.am
---- dbus-glib-0.71.orig/Makefile.am	2006-07-21 22:21:05.000000000 +0200
-+++ dbus-glib-0.71/Makefile.am	2006-08-08 19:51:50.878875193 +0200
-@@ -1,7 +1,7 @@
+--- dbus-glib-0.72/Makefile.am.orig	2006-10-25 14:59:00.000000000 +0200
++++ dbus-glib-0.72/Makefile.am	2006-10-28 09:31:54.501731750 +0200
+@@ -1,6 +1,6 @@
  GLIB_PC=dbus-glib-1.pc
  
--SUBDIRS=dbus tools test 
--DIST_SUBDIRS=dbus tools test
-+SUBDIRS=dbus tools
-+DIST_SUBDIRS=dbus tools
+-SUBDIRS=dbus tools test doc
++SUBDIRS=dbus tools doc
+ DIST_SUBDIRS=dbus tools test doc m4
  
  pkgconfigdir = $(libdir)/pkgconfig
- pkgconfig_DATA = $(GLIB_PC)
