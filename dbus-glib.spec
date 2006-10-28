@@ -106,6 +106,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+# AFL not in common-licenses, so COPYING included
+%doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libdbus-glib-1.so.*.*.*
 
 %files devel
