@@ -4,7 +4,7 @@
 %define		glib_version	1:2.10.1
 #
 Summary:	GLib-based library for using D-BUS
-Summary(pl.UTF-8):   Biblioteka do używania D-BUS oparta o GLib
+Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
 Version:	0.72
 Release:	1
@@ -37,7 +37,7 @@ z abstrakcją wątków i główną pętlą GLib.
 
 %package devel
 Summary:	Header files for GLib-based library for using D-BUS
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki do używania D-BUS opartej o GLib
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki do używania D-BUS opartej o GLib
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	dbus-devel >= %{dbus_version}
@@ -51,7 +51,7 @@ Pliki nagłówkowe biblioteki do używania D-BUS opartej o GLib.
 
 %package static
 Summary:	Static GLib-based library for using D-BUS
-Summary(pl.UTF-8):   Statyczna biblioteka do używania D-BUS oparta o GLib
+Summary(pl.UTF-8):	Statyczna biblioteka do używania D-BUS oparta o GLib
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -63,7 +63,7 @@ Statyczna biblioteka do używania D-BUS oparta o GLib.
 
 %package apidocs
 Summary:	D-BUS-GLib API documentation
-Summary(pl.UTF-8):   Dokumentacja API D-BUS-GLib
+Summary(pl.UTF-8):	Dokumentacja API D-BUS-GLib
 Group:		Documentation
 Requires:	gtk-doc-common
 
