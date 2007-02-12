@@ -4,7 +4,7 @@
 %define		glib_version	1:2.10.1
 #
 Summary:	GLib-based library for using D-BUS
-Summary(pl):	Biblioteka do uøywania D-BUS oparta o GLib
+Summary(pl.UTF-8):   Biblioteka do u≈ºywania D-BUS oparta o GLib
 Name:		dbus-glib
 Version:	0.72
 Release:	1
@@ -31,13 +31,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 D-BUS add-on library to integrate the standard D-BUS library with the
 GLib thread abstraction and main loop.
 
-%description -l pl
+%description -l pl.UTF-8
 Dodatkowa biblioteka D-BUS do integracji standardowej biblioteki D-BUS
-z abstrakcj± w±tkÛw i g≥Ûwn± pÍtl± GLib.
+z abstrakcjƒÖ wƒÖtk√≥w i g≈Ç√≥wnƒÖ pƒôtlƒÖ GLib.
 
 %package devel
 Summary:	Header files for GLib-based library for using D-BUS
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki do uøywania D-BUS opartej o GLib
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki do u≈ºywania D-BUS opartej o GLib
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	dbus-devel >= %{dbus_version}
@@ -46,31 +46,31 @@ Requires:	glib2-devel >= %{glib2_version}
 %description devel
 Header files for GLib-based library for using D-BUS.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki do uøywania D-BUS opartej o GLib.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki do u≈ºywania D-BUS opartej o GLib.
 
 %package static
 Summary:	Static GLib-based library for using D-BUS
-Summary(pl):	Statyczna biblioteka do uøywania D-BUS oparta o GLib
+Summary(pl.UTF-8):   Statyczna biblioteka do u≈ºywania D-BUS oparta o GLib
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static GLib-based library for using D-BUS.
 
-%description static -l pl
-Statyczna biblioteka do uøywania D-BUS oparta o GLib.
+%description static -l pl.UTF-8
+Statyczna biblioteka do u≈ºywania D-BUS oparta o GLib.
 
 %package apidocs
 Summary:	D-BUS-GLib API documentation
-Summary(pl):	Dokumentacja API D-BUS-GLib
+Summary(pl.UTF-8):   Dokumentacja API D-BUS-GLib
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
 D-BUS-GLib API documentation.
 
-%description apidocs -l pl
+%description apidocs -l pl.UTF-8
 Dokumentacja API D-BUS-GLib.
 
 %prep
