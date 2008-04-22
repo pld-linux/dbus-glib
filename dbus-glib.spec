@@ -7,7 +7,7 @@ Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
 Version:	0.74
-Release:	1
+Release:	2
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	http://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
@@ -15,6 +15,7 @@ Source0:	http://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.g
 Source1:	dbus-bus-introspect.xml
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-nolibs.patch
+Patch2:		%{name}-bug14429.patch
 URL:		http://www.freedesktop.org/Software/DBusBindings
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
@@ -77,6 +78,7 @@ Dokumentacja API D-BUS-GLib.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -109,6 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 # AFL not in common-licenses, so COPYING included
 %doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libdbus-glib-1.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libdbus-glib-1.so.2
 
 %files devel
 %defattr(644,root,root,755)
