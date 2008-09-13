@@ -1,6 +1,7 @@
 #
 # Conditional build:
 %bcond_without	apidocs         # disable gtk-doc
+%bcond_without	static_libs	# don't build static library
 #
 %define		dbus_version	0.93
 %define		expat_version	1:1.95.5
@@ -97,6 +98,7 @@ echo 'AC_DEFUN([GTK_DOC_CHECK],[])' >> acinclude.m4
 %configure \
 	%{!?with_apidocs:--disable-gtk-doc} \
 	%{?with_apidocs:--with-html-dir=%{_gtkdocdir}} \
+	%{!?with_static_libs:--disable-static} \
 	--with-xml=expat
 
 cp %{SOURCE1} tools
@@ -131,9 +133,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/dbus*/dbus/dbus-gtype-specialized.h
 %{_pkgconfigdir}/dbus-glib-1.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libdbus-glib-1.a
+%endif
 
 %if %{with apidocs}
 %files apidocs
