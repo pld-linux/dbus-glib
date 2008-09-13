@@ -1,4 +1,7 @@
 #
+# Conditional build:
+%bcond_without	apidocs         # disable gtk-doc
+#
 %define		dbus_version	0.93
 %define		expat_version	1:1.95.5
 %define		glib_version	1:2.10.1
@@ -20,7 +23,9 @@ BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-devel >= %{dbus_version}
 BuildRequires:	expat-devel >= %{expat_version}
+BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= %{glib_version}
+%{?with_apidocs:BuildRequires:	gtk-doc-automake >= 1.8}
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.98
@@ -78,6 +83,11 @@ Dokumentacja API D-BUS-GLib.
 %patch0 -p1
 %patch1 -p1
 
+%if !%{with apidocs}
+echo 'EXTRA_DIST=' > gtk-doc.make
+echo 'AC_DEFUN([GTK_DOC_CHECK],[])' >> acinclude.m4
+%endif
+
 %build
 %{__libtoolize}
 %{__aclocal}
@@ -85,7 +95,8 @@ Dokumentacja API D-BUS-GLib.
 %{__autoheader}
 %{__automake}
 %configure \
-	--with-html-dir=%{_gtkdocdir} \
+	%{!?with_apidocs:--disable-gtk-doc} \
+	%{?with_apidocs:--with-html-dir=%{_gtkdocdir}} \
 	--with-xml=expat
 
 cp %{SOURCE1} tools
@@ -124,6 +135,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libdbus-glib-1.a
 
+%if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/dbus-glib
+%endif
