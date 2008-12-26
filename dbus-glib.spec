@@ -3,22 +3,22 @@
 %bcond_without	apidocs         # disable gtk-doc
 %bcond_without	static_libs	# don't build static library
 #
-%define		dbus_version	0.93
+%define		dbus_version	1.1
 %define		expat_version	1:1.95.5
 %define		glib_version	1:2.10.1
 #
 Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
-Version:	0.76
+Version:	0.78
 Release:	1
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	http://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
-# Source0-md5:	d3b716a7e798faa1c6a867675f00306a
+# Source0-md5:	d4aa04b9df35b4bd663be38e959941c8
 Source1:	dbus-bus-introspect.xml
 Patch0:		%{name}-configure.patch
-Patch1:		%{name}-nolibs.patch
+Patch1:		%{name}-as-needed.patch
 URL:		http://www.freedesktop.org/Software/DBusBindings
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
@@ -79,12 +79,24 @@ D-BUS-GLib API documentation.
 %description apidocs -l pl.UTF-8
 Dokumentacja API D-BUS-GLib.
 
+%package -n bash-completion-dbus
+Summary:	bash-completion for dbus-send
+Summary(pl.UTF-8):	Bashowe uzupełnianie poleceń dla dbus-send
+Group:		Applications/Shells
+Requires:	bash-completion
+
+%description -n bash-completion-dbus
+This package provides bash-completion for dbus-send.
+
+%description -n bash-completion-dbus -l pl.UTF-8
+Ten pakiet dostarcza bashowe uzupełnianie poleceń dla dbus-send.
+
 %prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
 
-%if !%{with apidocs}
+%if %{without apidocs}
 echo 'EXTRA_DIST=' > gtk-doc.make
 echo 'AC_DEFUN([GTK_DOC_CHECK],[])' >> acinclude.m4
 %endif
@@ -109,7 +121,10 @@ cp %{SOURCE1} tools
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	profiledir=/etc/bash_completion.d
+
+mv -f $RPM_BUILD_ROOT/etc/bash_completion.d/{dbus-bash-completion.sh,dbus}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -144,3 +159,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_gtkdocdir}/dbus-glib
 %endif
+
+%files -n bash-completion-dbus
+%defattr(644,root,root,755)
+/etc/bash_completion.d/dbus
+%attr(755,root,root) %{_libdir}/dbus-bash-completion-helper
