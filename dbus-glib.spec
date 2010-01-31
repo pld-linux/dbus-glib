@@ -22,10 +22,12 @@ URL:		http://www.freedesktop.org/Software/DBusBindings
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-devel >= %{dbus_version}
+%{?with_apidocs:BuildRequires:	docbook-dtd412-xml}
 BuildRequires:	expat-devel >= %{expat_version}
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= %{glib_version}
 %{?with_apidocs:BuildRequires:	gtk-doc-automake >= 1.8}
+%{?with_apidocs:BuildRequires:	gtk-doc}
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.527
