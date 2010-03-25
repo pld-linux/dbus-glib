@@ -10,12 +10,12 @@
 Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
-Version:	0.84
+Version:	0.86
 Release:	1
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	http://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
-# Source0-md5:	69fbe31fb3ee778715dff44cdd5178bf
+# Source0-md5:	cd0ab148fb0c786fc88be49d19971f50
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-as-needed.patch
 URL:		http://www.freedesktop.org/Software/DBusBindings
