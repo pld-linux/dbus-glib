@@ -5,17 +5,17 @@
 #
 %define		dbus_version	1.1
 %define		expat_version	1:1.95.5
-%define		glib_version	1:2.10.1
+%define		glib_version	1:2.24
 #
 Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
-Version:	0.86
+Version:	0.88
 Release:	1
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	http://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
-# Source0-md5:	cd0ab148fb0c786fc88be49d19971f50
+# Source0-md5:	7c04ba01df6130c2c4e62f73bea0d0d5
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-as-needed.patch
 URL:		http://www.freedesktop.org/Software/DBusBindings
@@ -27,7 +27,7 @@ BuildRequires:	expat-devel >= %{expat_version}
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= %{glib_version}
 %{?with_apidocs:BuildRequires:	gtk-doc-automake >= 1.8}
-%{?with_apidocs:BuildRequires:	gtk-doc}
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.527
@@ -111,8 +111,9 @@ echo 'AC_DEFUN([GTK_DOC_CHECK],[])' >> acinclude.m4
 %{__automake}
 %configure \
 	%{__enable_disable apidocs gtk-doc} \
-	--with-html-dir=%{_gtkdocdir} \
-	%{__disable static_libs static}
+	%{__disable static_libs static} \
+	--disable-silent-rules \
+	--with-html-dir=%{_gtkdocdir}
 
 %{__make}
 
