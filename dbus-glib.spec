@@ -5,17 +5,17 @@
 #
 %define		dbus_version	1.1
 %define		expat_version	1:1.95.5
-%define		glib_version	1:2.24
+%define		glib_version	1:2.26
 #
 Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
-Version:	0.88
+Version:	0.92
 Release:	1
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	http://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
-# Source0-md5:	7c04ba01df6130c2c4e62f73bea0d0d5
+# Source0-md5:	b595b36890c4f9f8f5d5dec131c495f8
 Patch0:		%{name}-configure.patch
 Patch1:		%{name}-as-needed.patch
 URL:		http://www.freedesktop.org/Software/DBusBindings
@@ -145,8 +145,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libdbus-glib-1.so
 %{_libdir}/libdbus-glib-1.la
 %{_mandir}/man1/dbus-binding-tool.1*
-%{_includedir}/dbus*/dbus/dbus-glib*.h
-%{_includedir}/dbus*/dbus/dbus-gtype-specialized.h
+%{_includedir}/dbus-1.0/dbus/dbus-glib*.h
+%{_includedir}/dbus-1.0/dbus/dbus-gtype-specialized.h
+%{_includedir}/dbus-1.0/dbus/dbus-gvalue-parse-variant.h
 %{_pkgconfigdir}/dbus-glib-1.pc
 
 %if %{with static_libs}
