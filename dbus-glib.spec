@@ -3,20 +3,19 @@
 %bcond_without	apidocs         # disable gtk-doc
 %bcond_without	static_libs	# don't build static library
 
-%define		dbus_version	1.1
+%define		dbus_version	1.2.16
 %define		expat_version	1:1.95.5
 %define		glib2_version	1:2.26
 Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
-Version:	0.92
-Release:	2
+Version:	0.94
+Release:	1
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	http://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
-# Source0-md5:	b595b36890c4f9f8f5d5dec131c495f8
+# Source0-md5:	e1f1506a6f4941e67bffd614b1ad5af6
 Patch0:		%{name}-configure.patch
-Patch1:		%{name}-as-needed.patch
 URL:		http://www.freedesktop.org/Software/DBusBindings
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
@@ -94,7 +93,6 @@ Ten pakiet dostarcza bashowe uzupełnianie poleceń dla dbus-send.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %if %{without apidocs}
 echo 'EXTRA_DIST=' > gtk-doc.make
