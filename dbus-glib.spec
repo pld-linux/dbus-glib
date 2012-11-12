@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	apidocs         # disable gtk-doc
+%bcond_with	apidocs         # disable gtk-doc
 %bcond_without	static_libs	# don't build static library
 
 %define		dbus_version	1.2.16
@@ -10,7 +10,7 @@ Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
 Version:	0.100
-Release:	2
+Release:	3
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	http://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
@@ -94,13 +94,8 @@ Ten pakiet dostarcza bashowe uzupełnianie poleceń dla dbus-send.
 %setup -q
 %patch0 -p1
 
-%if %{without apidocs}
-echo 'EXTRA_DIST=' > gtk-doc.make
-echo 'AC_DEFUN([GTK_DOC_CHECK],[])' >> acinclude.m4
-%endif
-
 %build
-%{?with_apidocs:%{__gtkdocize}}
+%{__gtkdocize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
