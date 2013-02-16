@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	apidocs         # disable gtk-doc
+%bcond_without	apidocs         # disable gtk-doc
 %bcond_without	static_libs	# don't build static library
 
 %define		dbus_version	1.2.16
@@ -104,7 +104,7 @@ Ten pakiet dostarcza bashowe uzupełnianie poleceń dla dbus-send.
 %{__autoheader}
 %{__automake}
 %configure \
-	%{__enable_disable apidocs gtk-doc} \
+	%{__disable apidocs gtk-doc} \
 	%{__disable static_libs static} \
 	--disable-silent-rules \
 	--with-html-dir=%{_gtkdocdir}
