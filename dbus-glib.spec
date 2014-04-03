@@ -10,7 +10,7 @@ Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
 Version:	0.102
-Release:	1
+Release:	2
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	http://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
@@ -71,6 +71,9 @@ Summary:	D-BUS-GLib API documentation
 Summary(pl.UTF-8):	Dokumentacja API D-BUS-GLib
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 D-BUS-GLib API documentation.
