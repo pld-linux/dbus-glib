@@ -22,7 +22,7 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-devel >= %{dbus_version}
 %{?with_apidocs:BuildRequires:	docbook-dtd412-xml}
 BuildRequires:	expat-devel >= %{expat_version}
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= %{glib2_version}
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 %{?with_apidocs:BuildRequires:	gtk-doc-automake >= 1.8}
