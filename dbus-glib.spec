@@ -98,12 +98,12 @@ Ten pakiet dostarcza bashowe uzupełnianie poleceń dla dbus-send.
 %patch0 -p1
 
 %build
-%{__gtkdocize}
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
+#{__gtkdocize}
+#{__libtoolize}
+#{__aclocal}
+#{__autoconf}
+#{__autoheader}
+#{__automake}
 %configure \
 	%{__disable apidocs gtk-doc} \
 	%{__disable static_libs static} \
