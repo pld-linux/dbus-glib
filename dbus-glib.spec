@@ -3,18 +3,18 @@
 %bcond_without	apidocs         # disable gtk-doc
 %bcond_without	static_libs	# don't build static library
 
-%define		dbus_version	1.2.16
+%define		dbus_version	1.8
 %define		expat_version	1:1.95.5
-%define		glib2_version	1:2.26
+%define		glib2_version	1:2.32
 Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
-Version:	0.102
-Release:	2
+Version:	0.104
+Release:	1
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	http://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
-# Source0-md5:	f76b8558fd575d0106c3a556eaa49184
+# Source0-md5:	5497d2070709cf796f1878c75a72a039
 Patch0:		%{name}-configure.patch
 URL:		http://www.freedesktop.org/Software/DBusBindings
 BuildRequires:	autoconf >= 2.52
@@ -24,8 +24,8 @@ BuildRequires:	dbus-devel >= %{dbus_version}
 BuildRequires:	expat-devel >= %{expat_version}
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= %{glib2_version}
-%{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
-%{?with_apidocs:BuildRequires:	gtk-doc-automake >= 1.8}
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.14}
+%{?with_apidocs:BuildRequires:	gtk-doc-automake >= 1.14}
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.527
