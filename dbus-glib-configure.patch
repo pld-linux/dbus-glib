@@ -1,10 +1,11 @@
---- dbus-glib-0.72/Makefile.am.orig	2006-10-25 14:59:00.000000000 +0200
-+++ dbus-glib-0.72/Makefile.am	2006-10-28 09:31:54.501731750 +0200
-@@ -1,6 +1,6 @@
+--- dbus-glib-0.110/Makefile.am.fix	2018-05-25 21:10:35.649430217 +0200
++++ dbus-glib-0.110/Makefile.am	2018-05-25 21:10:40.462767493 +0200
+@@ -1,7 +1,7 @@
+ ACLOCAL_AMFLAGS = -I m4
  GLIB_PC=dbus-glib-1.pc
  
--SUBDIRS=dbus tools test doc
-+SUBDIRS=dbus tools doc
- DIST_SUBDIRS=dbus tools test doc m4
+-SUBDIRS = dbus-gmain dbus tools test doc
++SUBDIRS = dbus-gmain dbus tools doc
+ DIST_SUBDIRS = dbus-gmain dbus tools test doc m4
  
  pkgconfigdir = $(libdir)/pkgconfig

@@ -5,16 +5,16 @@
 
 %define		dbus_version	1.8
 %define		expat_version	1:1.95.5
-%define		glib2_version	1:2.32
+%define		glib2_version	1:2.40
 Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
-Version:	0.108
+Version:	0.110
 Release:	1
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	https://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
-# Source0-md5:	a66a613705870752ca9786e0359aea97
+# Source0-md5:	d7cebf1d69445cbd28b4983392145192
 Patch0:		%{name}-configure.patch
 URL:		https://www.freedesktop.org/wiki/Software/DBusBindings
 BuildRequires:	autoconf >= 2.52
@@ -160,4 +160,4 @@ rm -rf $RPM_BUILD_ROOT
 %files -n bash-completion-dbus
 %defattr(644,root,root,755)
 /etc/bash_completion.d/dbus
-%attr(755,root,root) %{_libdir}/dbus-bash-completion-helper
+%attr(755,root,root) %{_libexecdir}/dbus-bash-completion-helper
