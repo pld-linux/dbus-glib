@@ -26,7 +26,7 @@ BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= %{glib2_version}
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.14}
 %{?with_apidocs:BuildRequires:	gtk-doc-automake >= 1.14}
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.527
 Requires:	dbus-libs >= %{dbus_version}
