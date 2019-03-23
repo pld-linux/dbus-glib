@@ -10,7 +10,7 @@ Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
 Version:	0.110
-Release:	2
+Release:	3
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	https://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
@@ -119,7 +119,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	profiledir=/etc/bash_completion.d
 
-mv -f $RPM_BUILD_ROOT/etc/bash_completion.d/{dbus-bash-completion.sh,dbus}
+%{__mv} $RPM_BUILD_ROOT/etc/bash_completion.d/{dbus-bash-completion.sh,dbus}
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libdbus-glib-1.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -138,7 +140,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/dbus-binding-tool
 %attr(755,root,root) %{_libdir}/libdbus-glib-1.so
-%{_libdir}/libdbus-glib-1.la
 %{_mandir}/man1/dbus-binding-tool.1*
 %{_includedir}/dbus-1.0/dbus/dbus-glib*.h
 %{_includedir}/dbus-1.0/dbus/dbus-gtype-specialized.h
