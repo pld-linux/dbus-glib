@@ -71,9 +71,7 @@ Summary:	D-BUS-GLib API documentation
 Summary(pl.UTF-8):	Dokumentacja API D-BUS-GLib
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 D-BUS-GLib API documentation.
