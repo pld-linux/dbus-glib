@@ -9,12 +9,12 @@
 Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
-Version:	0.110
-Release:	3
+Version:	0.112
+Release:	1
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	https://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
-# Source0-md5:	d7cebf1d69445cbd28b4983392145192
+# Source0-md5:	021e6c8a288df02c227e4aafbf7e7527
 Patch0:		%{name}-configure.patch
 URL:		https://www.freedesktop.org/wiki/Software/DBusBindings
 BuildRequires:	autoconf >= 2.52
@@ -27,7 +27,8 @@ BuildRequires:	glib2-devel >= %{glib2_version}
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.14}
 %{?with_apidocs:BuildRequires:	gtk-doc-automake >= 1.14}
 BuildRequires:	libtool >= 2:2
-BuildRequires:	pkgconfig
+BuildRequires:	pkgconfig >= 1:0.28
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.527
 Requires:	dbus-libs >= %{dbus_version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -84,6 +85,7 @@ Summary:	bash-completion for dbus-send
 Summary(pl.UTF-8):	Bashowe uzupełnianie poleceń dla dbus-send
 Group:		Applications/Shells
 Requires:	bash-completion
+BuildArch:	noarch
 
 %description -n bash-completion-dbus
 This package provides bash-completion for dbus-send.
@@ -130,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 # AFL not in common-licenses, so COPYING included
-%doc AUTHORS COPYING ChangeLog NEWS README
+%doc AUTHORS COPYING NEWS README
 %attr(755,root,root) %{_libdir}/libdbus-glib-1.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libdbus-glib-1.so.2
 
