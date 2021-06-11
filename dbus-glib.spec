@@ -10,7 +10,7 @@ Summary:	GLib-based library for using D-BUS
 Summary(pl.UTF-8):	Biblioteka do używania D-BUS oparta o GLib
 Name:		dbus-glib
 Version:	0.112
-Release:	1
+Release:	2
 License:	AFL v2.1 or GPL v2
 Group:		Libraries
 Source0:	https://dbus.freedesktop.org/releases/dbus-glib/%{name}-%{version}.tar.gz
@@ -85,7 +85,6 @@ Summary:	bash-completion for dbus-send
 Summary(pl.UTF-8):	Bashowe uzupełnianie poleceń dla dbus-send
 Group:		Applications/Shells
 Requires:	bash-completion
-BuildArch:	noarch
 
 %description -n bash-completion-dbus
 This package provides bash-completion for dbus-send.
